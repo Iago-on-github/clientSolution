@@ -19,6 +19,7 @@
     .landingPageContainer .textStore {
         margin-bottom: 20px;
         max-width: 406px;
+        
         overflow-wrap: break-word;
     }
 
