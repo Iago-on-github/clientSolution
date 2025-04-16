@@ -18,7 +18,7 @@ function landingPageInjection() {
         </div>
     </section>`;
 
-    const banners = document.querySelector('.box-banners'); 
+    const banners = document.querySelector('#box-banners');
 
     if (banners) {
         banners.parentNode.insertBefore(landingPage, banners);
@@ -26,5 +26,5 @@ function landingPageInjection() {
 }
 
 window.onload = function() {
-    setTimeout(landingPageInjection, 500);
+    landingPageInjection();
 }

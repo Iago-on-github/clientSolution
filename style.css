@@ -5,8 +5,8 @@
 }
 
 .landingPageContainer {
-    top: -50%;
-    transform: translateY(50%);
+    /* top: -50%; */
+    /* transform: translateY(50%); */
     position: relative;
     display: flex;
     justify-content: center;
