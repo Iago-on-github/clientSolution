@@ -1,8 +1,10 @@
 function landingPageInjection() {
-    const landingPage = document.createElement('div');
-    landingPage.id = 'landing_page';
+    const landingPage = $("<div></div>");
+    ("$body").append(landingPage);
 
-    landingPage.innerHTML = `
+    landingPage.attr = ("id", "landing_page");
+
+    landingPage.html = `
     <section>
         <div class="landingPageContainer">
             <div class="imageStore">
@@ -18,13 +20,13 @@ function landingPageInjection() {
         </div>
     </section>`;
 
-    const banners = document.querySelector('#box-banners');
+    const banners = $("#box-banners");
 
-    if (banners) {
-        banners.parentNode.insertBefore(landingPage, banners);
+    if (banners.length > 0) {
+        banners.insertBefore(landingPage, banners);
     }
 }
 
-window.onload = function() {
+$(window).on('load', () => {
     landingPageInjection();
-}
+});

@@ -4,13 +4,30 @@
     font-family: "Roboto", sans-serif;
 }
 
+:root {
+    --main-color: #F7C959;
+
+    /* titles and paragraphs */
+    --title-color: #333;
+    --text-color: #444;
+
+    /* buttons and hover effect */
+    --button-color: #007BFF;
+    --button-hover-color: #0056b3;
+    --button-text-color: #ffff;
+}
+
+#landing_page {
+    margin: 0;
+}
+
 .landingPageContainer {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    top: 35px;
+    margin-bottom: -50px;
 }
 
 .landingPageContainer .imageStore {
@@ -19,10 +36,12 @@
     text-align: center;
 
     padding: 4.1rem;
-    width: 30%;
+
+    width: 38%;
     max-height: 240px;
-    border-radius: 5px;
-    margin-right: 8px;
+
+    border-radius: 10px;
+    margin-right: 20px;
 }
 
 .landingPageContainer .imageStore:hover {
@@ -33,16 +52,17 @@
 }
 
 .landingPageContainer .textStore {
-    color: #333;
-    background-color: #F7C959;
+    color: var(--title-color);
+    background-color: var(--main-color);
 
     text-align: center;
-    padding: 2rem;
-
-    max-width: 450px;
-    border-radius: 5px;
-
     overflow-wrap: break-word;
+
+    padding: 2rem;
+    max-width: 650px;
+    width: 43.7%;
+
+    border-radius: 10px;
 }
 
  .textStore h1 {
@@ -53,7 +73,7 @@
 }
 
 .textStore h2 {
-    color: #444;
+    color: var(--text-color);
 
     font-size: 1.2rem;
     font-weight: 600;
@@ -72,8 +92,8 @@
 }
 
 .textStore a button {
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--button-color);
+    color:var(--button-text-color);
 
     padding: 10px; 
     margin: 10px;
@@ -87,5 +107,55 @@
 }
 
 .textStore a button:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover-color);
+}
+
+
+/* MEDIA QUERIES */
+/* MEDIA QUERIES */
+/* MEDIA QUERIES */
+/* MEDIA QUERIES */
+/* MEDIA QUERIES */
+
+
+@media screen and (max-width: 667px) {
+    .landingPageContainer {
+        display: flex;
+        flex-direction: column;
+
+        top: -0%;
+        transform: translateY(0%);
+        
+    }
+
+    .landingPageContainer .imageStore img {
+        width: 100%;
+    }
+
+    .landingPageContainer .imageStore:hover {
+        transform: translate(-0.3%, -1.5%);
+    }
+
+    .landingPageContainer .textStore {
+        max-width: 406px;
+        width: 86%;
+        
+        margin: 0px 0px 83px 0px;
+
+        overflow-wrap: break-word;
+    }
+
+    .textStore h1 {
+        font-size: 2rem;
+    }
+
+    .textStore h2 {
+        font-size: 1.2rem;
+    }
+
+    .textStore p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        font-weight: 500;
+    }
 }
