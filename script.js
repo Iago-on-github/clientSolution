@@ -30,3 +30,11 @@ function landingPageInjection() {
 $(window).on('load', () => {
     landingPageInjection();
 });
+
+// 
+// 
+// 
+
+const enableCode = {
+    active: true // verify if active == true
+}
