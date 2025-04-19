@@ -1,32 +1,47 @@
+const landingPageActivator = {
+    active: true,
+    id: "landing_page",
+    configurations: {
+        image: "https://cdn.awsli.com.br/400x300/1791/1791543/logo/tmpsualojavolta-3ebc7d35e6.png",
+        title: "Sua Loja",
+        subtitle: "Melhores ofertas para você!",
+        description: "Venha conhecer a (Sua Loja), o seu destino ideal para tudo o que você precisa! Aqui, oferecemos uma seleção incrível de produtos que vão desde roupas estilosas e eletrônicos de última geração até itens para o seu lar que vão transformar o seu dia a dia.",
+        buttonText: "Botão de redirecionamento",
+        linkButton: "#",
+    }
+};
+
 function landingPageInjection() {
+    if (!landingPageActivator.active || $(`#${landingPageActivator.id}`).length > 0) return;
+
     const landingPage = $("<div></div>");
-    ("$body").append(landingPage);
+    landingPage.attr("id", landingPageActivator.id);
 
-    landingPage.attr = ("id", "landing_page");
+    const c = landingPageActivator.configurations;
 
-    landingPage.html = `
-    <section>
-        <div class="landingPageContainer">
-            <div class="imageStore">
-                <a href="#"><img src="https://cdn.awsli.com.br/400x300/1791/1791543/logo/tmpsualojavolta-3ebc7d35e6.png" alt="imagem_logo_loja"></a>
+    landingPage.html(`
+        <section>
+            <div class="landingPageContainer">
+                <div class="imageStore">
+                    <a href="${c.linkButton}"><img src="${c.image}" alt="imagem_logo_loja"></a>
+                </div>
+
+                <div class="textStore">
+                    <h1>${c.title}</h1>
+                    <h2>${c.subtitle}</h2>
+                    <p>${c.description}</p>
+                    <a href="${c.linkButton}"><button>${c.buttonText}</button></a>
+                </div>
             </div>
-
-            <div class="textStore">
-                <h1>Sua Loja</h1>
-                <h2>Melhores ofertas para você!</h2>
-                <p>Venha conhecer a (Sua Loja), o seu destino ideal para tudo o que você precisa! Aqui, oferecemos uma seleção incrível de produtos que vão desde roupas estilosas e eletrônicos de última geração até itens para o seu lar que vão transformar o seu dia a dia.</p>
-                <a href="#"><button>Botão de redirecionamento</button></a>
-            </div>
-        </div>
-    </section>`;
+        </section>
+    `);
 
     const banners = $("#box-banners");
-
     if (banners.length > 0) {
-        banners.insertBefore(landingPage, banners);
+        landingPage.insertBefore(banners);
     }
-}
+};
 
-$(window).on('load', () => {
+$(window).on("load", () => {
     landingPageInjection();
 });
