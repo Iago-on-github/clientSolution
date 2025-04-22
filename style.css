@@ -6,15 +6,17 @@
 
 :root {
     --main-color: #F7C959;
+    --hover-main-color: #F8C854;
 
     /* titles and paragraphs */
     --title-color: #333;
     --text-color: #444;
 
-    /* buttons and hover effect */
+    /* buttons and button-hover effect */
     --button-color: #007BFF;
-    --button-hover-color: #0056b3;
     --button-text-color: #ffff;
+
+    --button-hover-color: #0056b3;
 }
 
 #landing_page {
@@ -42,13 +44,12 @@
 
     border-radius: 10px;
     margin-right: 20px;
+
+    transition: 0.5s ease-in-out;
 }
 
 .landingPageContainer .imageStore:hover {
-    /* border: solid;
-    border-color: #01AEFF;
-    border-width: 3px; */
-    transform: translate(-1.5%, -1.5%);
+    transform: scale(1.03);
 }
 
 .landingPageContainer .textStore {
@@ -63,6 +64,13 @@
     width: 43.7%;
 
     border-radius: 10px;
+
+    transition: 0.5s ease-in-out;
+}
+
+.landingPageContainer .textStore:hover {
+    background-color: var(--hover-main-color);
+    transform: scale(1.03);
 }
 
  .textStore h1 {
@@ -125,7 +133,6 @@
 
         top: -0%;
         transform: translateY(0%);
-        
     }
 
     .landingPageContainer .imageStore img {
@@ -139,7 +146,7 @@
     .landingPageContainer .textStore {
         max-width: 406px;
         width: 86%;
-        
+
         margin: 0px 0px 83px 0px;
 
         overflow-wrap: break-word;

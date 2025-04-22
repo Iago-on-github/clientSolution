@@ -18,5 +18,5 @@ checklist:
 
 🧠 Pontos de Atenção no JavaScript
 
-1. Código ativador []
+1. Código ativador [X]
 2. Uso do jQuery como padrão [X]

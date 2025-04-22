@@ -1,40 +1,57 @@
+// ativar a landingPage
+
+// const landingPageActivator = {
+//     active: true,
+//     id: "landing_page",
+//     configurations: {
+//         image: "https://cdn.awsli.com.br/400x300/1791/1791543/logo/tmpsualojavolta-3ebc7d35e6.png",
+//         title: "Sua Loja",
+//         subtitle: "Melhores ofertas para você!",
+//         description: "Venha conhecer a (Sua Loja), o seu destino ideal para tudo o que você precisa! Aqui, oferecemos uma seleção incrível de produtos que vão desde roupas estilosas e eletrônicos de última geração até itens para o seu lar que vão transformar o seu dia a dia.",
+//         buttonText: "Botão de redirecionamento",
+//         linkButton: "#",
+//     }
+// };
+
+// injetar a landingPage
 function landingPageInjection() {
+
+    // verifica se `active == false` ou se landingPage já está injetada (se true, não retorna nada)
+    if (!landingPageActivator.active || $(`#${landingPageActivator.id}`).length > 0) return;
+
     const landingPage = $("<div></div>");
-    ("$body").append(landingPage);
+    landingPage.attr("id", landingPageActivator.id);
 
-    landingPage.attr = ("id", "landing_page");
+    const configs = landingPageActivator.configurations;
 
-    landingPage.html = `
-    <section>
-        <div class="landingPageContainer">
-            <div class="imageStore">
-                <a href="#"><img src="https://cdn.awsli.com.br/400x300/1791/1791543/logo/tmpsualojavolta-3ebc7d35e6.png" alt="imagem_logo_loja"></a>
+    // injeção dinâmica do html
+    landingPage.html(`
+        <section>
+            <div class="landingPageContainer">
+                <div class="imageStore">
+                    <a href="${configs.linkButton}"><img src="${configs.image}" alt="imagem_logo_loja"></a>
+                </div>
+
+                <div class="textStore">
+                    <h1>${configs.title}</h1>
+                    <h2>${configs.subtitle}</h2>
+                    <p>${configs.description}</p>
+                    <a href="${configs.linkButton}"><button>${configs.buttonText}</button></a>
+                </div>
             </div>
+        </section>
+    `);
 
-            <div class="textStore">
-                <h1>Sua Loja</h1>
-                <h2>Melhores ofertas para você!</h2>
-                <p>Venha conhecer a (Sua Loja), o seu destino ideal para tudo o que você precisa! Aqui, oferecemos uma seleção incrível de produtos que vão desde roupas estilosas e eletrônicos de última geração até itens para o seu lar que vão transformar o seu dia a dia.</p>
-                <a href="#"><button>Botão de redirecionamento</button></a>
-            </div>
-        </div>
-    </section>`;
-
+    // lugar de injeção (before id #box-banners)
     const banners = $("#box-banners");
 
     if (banners.length > 0) {
-        banners.insertBefore(landingPage, banners);
+        landingPage.insertBefore(banners);
     }
-}
+};
 
-$(window).on('load', () => {
+// carregamento da página
+
+$(window).on("load", () => {
     landingPageInjection();
 });
-
-// 
-// 
-// 
-
-const enableCode = {
-    active: true // verify if active == true
-}
